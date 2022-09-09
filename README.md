@@ -1,8 +1,33 @@
 # 设计模式Go语言版本
 
+> 代码来自https://refactoringguru.cn/design-patterns
+
 [TOC]
 
 ## 创建型模式
+
+### 工厂模式
+
+```mermaid
+classDiagram
+class IGun
+<<interface>> IGun
+IGun: setName(name)
+IGun: setPower(power)
+IGun: getName() string
+IGun: getPower() int
+
+class Gun
+Gun: name string
+Gun: power int
+
+class Ak47
+class Musket
+
+Gun ..|> IGun: 实现
+Ak47 --|> Gun: 继承
+Musket --|> Gun: 继承
+```
 
 ### 抽象工厂模式
 
