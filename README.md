@@ -79,3 +79,38 @@ AdidasShoe ..> Shoe: 依赖
 NikeShirt ..> Shirt: 依赖
 NikeShoe ..> Shoe: 依赖
 ```
+
+### 生成器模式
+
+```mermaid
+classDiagram
+class IBuilder
+<<interface>> IBuilder
+IBuilder: setWindowType()
+IBuilder: setDoorType()
+IBuilder: setNumFloor()
+IBuilder: getHouse() House
+
+class House
+House: WindowType string
+House: DoorType string
+House: Floor int
+
+class Director
+Director: builder IBuilder
+
+class NormalBuilder
+NormalBuilder: WindowType string
+NormalBuilder: DoorType string
+NormalBuilder: Floor int
+
+class IglooBuilder
+IglooBuilder: WindowType string
+IglooBuilder: DoorType string
+IglooBuilder: Floor int
+
+IBuilder ..> House: 依赖
+Director ..> IBuilder: 依赖
+NormalBuilder ..|> IBuilder: 实现
+IglooBuilder ..|> IBuilder: 实现
+```
