@@ -114,3 +114,24 @@ Director ..> IBuilder: 依赖
 NormalBuilder ..|> IBuilder: 实现
 IglooBuilder ..|> IBuilder: 实现
 ```
+
+### 原型模式
+
+```mermaid
+classDiagram
+class Inode
+<<interface>> Inode
+Inode: Print(string)
+Inode: Clone() Inode
+
+class File
+File: Name string
+
+class Folder
+Folder: Children []Inode
+Folder: Name string
+
+File ..|> Inode: 实现
+Folder ..|> Inode: 实现
+Folder ..> Inode: 依赖
+```
